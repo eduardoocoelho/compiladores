@@ -57,6 +57,32 @@ class StackMachine {
   display() : Object {
     if isvoid top then self else top.display() fi
   };
+
+  evaluate() : Object {
+    if isvoid top then self else
+      case top of
+        plus : PlusCommand => {
+          top <- plus.get_next();
+          case top of
+            first : IntCommand => {
+              top <- first.get_next();
+              case top of
+                second : IntCommand => {
+                  top <- second.get_next();
+                  push((new IntCommand).init(
+                    first.get_value() + second.get_value()
+                  ));
+                };
+                command : StackCommand => self;
+              esac;
+            };
+            command : StackCommand => self;
+          esac;
+        };
+        command : StackCommand => self;
+      esac
+    fi
+  };
 };
 
 class Main inherits A2I {
@@ -74,13 +100,15 @@ class Main inherits A2I {
           running <- false
         else if command = "d" then
           machine.display()
+        else if command = "e" then
+          machine.evaluate()
         else if command = "+" then
           machine.push(new PlusCommand)
         else if command = "s" then
           machine.push(new SwapCommand)
         else
           machine.push((new IntCommand).init(a2i(command)))
-        fi fi fi fi;
+        fi fi fi fi fi;
       } pool;
       0;
     }
