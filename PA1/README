@@ -62,9 +62,23 @@ Questions on PA1
 1. Describe your implementation of the stack machine in a single short
    paragraph.
 
+   A pilha é uma lista encadeada cujo topo é mantido por StackMachine. Cada
+   elemento é um StackCommand e possui uma referência para o próximo elemento;
+   IntCommand, PlusCommand e SwapCommand são subclasses que representam os
+   três tipos de comandos empilháveis. Main lê os comandos, StackMachine os
+   empilha, exibe a lista do topo para a base e usa case para avaliar soma ou
+   troca.
+
 
 2. List 3 things that you like about the Cool programming language.
+
+   - A sintaxe para classes, métodos e herança é pequena e fácil de ler.
+   - O coletor de lixo elimina a necessidade de liberar objetos manualmente.
+   - O comando case permite tratar objetos segundo seu tipo dinâmico.
 
 
 3. List 3 things you DON'T like about Cool.
 
+   - A linguagem permite somente herança simples.
+   - Não há vetores nem operações de ponto flutuante.
+   - A biblioteca padrão é pequena para programas maiores.
