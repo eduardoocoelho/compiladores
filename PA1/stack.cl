@@ -79,6 +79,17 @@ class StackMachine {
             command : StackCommand => self;
           esac;
         };
+        swap : SwapCommand => {
+          top <- swap.get_next();
+          let first : StackCommand <- top,
+              second : StackCommand <- first.get_next(),
+              rest : StackCommand <- second.get_next()
+          in {
+            second.set_next(first);
+            first.set_next(rest);
+            top <- second;
+          };
+        };
         command : StackCommand => self;
       esac
     fi
