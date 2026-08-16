@@ -1,16 +1,88 @@
-(*
- *  CS164 Fall 94
- *
- *  Programming Assignment 1
- *    Implementation of a simple stack machine.
- *
- *  Skeleton file
- *)
+class StackCommand {
+  next : StackCommand;
 
-class Main inherits IO {
+  set_next(command : StackCommand) : StackCommand {
+    {
+      next <- command;
+      self;
+    }
+  };
 
-   main() : Object {
-      out_string("Nothing implemented\n")
-   };
+  get_next() : StackCommand { next };
 
+  print() : Object { self };
+
+  display() : Object {
+    {
+      print();
+      if isvoid next then self else next.display() fi;
+    }
+  };
+};
+
+class IntCommand inherits StackCommand {
+  value : Int;
+
+  init(number : Int) : IntCommand {
+    {
+      value <- number;
+      self;
+    }
+  };
+
+  get_value() : Int { value };
+
+  print() : Object { (new IO).out_int(value).out_string("\n") };
+};
+
+class PlusCommand inherits StackCommand {
+  print() : Object { (new IO).out_string("+\n") };
+};
+
+class SwapCommand inherits StackCommand {
+  print() : Object { (new IO).out_string("s\n") };
+};
+
+class StackMachine {
+  top : StackCommand;
+
+  push(command : StackCommand) : Object {
+    {
+      command.set_next(top);
+      top <- command;
+      self;
+    }
+  };
+
+  display() : Object {
+    if isvoid top then self else top.display() fi
+  };
+};
+
+class Main inherits A2I {
+  machine : StackMachine <- new StackMachine;
+  io : IO <- new IO;
+
+  main() : Object {
+    let running : Bool <- true,
+        command : String
+    in {
+      while running loop {
+        io.out_string(">");
+        command <- io.in_string();
+        if command = "x" then
+          running <- false
+        else if command = "d" then
+          machine.display()
+        else if command = "+" then
+          machine.push(new PlusCommand)
+        else if command = "s" then
+          machine.push(new SwapCommand)
+        else
+          machine.push((new IntCommand).init(a2i(command)))
+        fi fi fi fi;
+      } pool;
+      0;
+    }
+  };
 };
