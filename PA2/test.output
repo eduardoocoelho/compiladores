@@ -1,0 +1,185 @@
+#name "test.cl"
+#35 CLASS
+#35 CLASS
+#35 CLASS
+#35 CLASS
+#36 ELSE
+#36 ELSE
+#36 ELSE
+#37 FI
+#37 FI
+#37 FI
+#38 IF
+#38 IF
+#38 IF
+#39 IN
+#39 IN
+#39 IN
+#40 INHERITS
+#40 INHERITS
+#40 INHERITS
+#41 ISVOID
+#41 ISVOID
+#41 ISVOID
+#42 LET
+#42 LET
+#42 LET
+#43 LOOP
+#43 LOOP
+#43 LOOP
+#44 POOL
+#44 POOL
+#44 POOL
+#45 THEN
+#45 THEN
+#45 THEN
+#46 WHILE
+#46 WHILE
+#46 WHILE
+#47 CASE
+#47 CASE
+#47 CASE
+#48 ESAC
+#48 ESAC
+#48 ESAC
+#49 NEW
+#49 NEW
+#49 NEW
+#50 OF
+#50 OF
+#50 OF
+#51 NOT
+#51 NOT
+#51 NOT
+#57 BOOL_CONST true
+#58 BOOL_CONST true
+#59 BOOL_CONST true
+#60 BOOL_CONST false
+#61 BOOL_CONST false
+#62 BOOL_CONST false
+#65 TYPEID True
+#66 TYPEID TRUE
+#67 TYPEID False
+#68 TYPEID FALSE
+#74 TYPEID Main
+#75 TYPEID Int
+#76 TYPEID String
+#77 TYPEID Bool
+#78 TYPEID Object
+#79 TYPEID IO
+#80 TYPEID SELF_TYPE
+#81 TYPEID Custom_Class_123
+#82 TYPEID A_B_C_D
+#85 OBJECTID self
+#86 OBJECTID x
+#87 OBJECTID y
+#88 OBJECTID z_value
+#89 OBJECTID my_variable_1
+#90 OBJECTID loop_counter
+#91 OBJECTID in_data
+#92 OBJECTID case_flag
+#95 INT_CONST 0
+#96 INT_CONST 1
+#97 INT_CONST 42
+#98 INT_CONST 1234567890
+#99 INT_CONST 007
+#105 LE
+#106 ASSIGN
+#107 DARROW
+#110 '+'
+#111 '-'
+#112 '*'
+#113 '/'
+#114 '~'
+#115 '<'
+#116 '='
+#117 '.'
+#118 '@'
+#119 ':'
+#120 ';'
+#121 '('
+#122 ')'
+#123 '{'
+#124 '}'
+#125 ','
+#131 STR_CONST ""
+#132 STR_CONST "Hello, World!"
+#133 STR_CONST "COOL Compiler Project - PUC Minas"
+#136 STR_CONST "Escape Sequences: \b backspace \t tab \n newline \f formfeed"
+#139 STR_CONST "Caractere zero escapado: 0 fim"
+#142 STR_CONST "Escapes gerais: \" aspas e \\ barra invertida e a d ? !"
+#147 STR_CONST "Primeira linha \nsegunda linha \nterceira linha"
+#153 ERROR "!"
+#154 ERROR "#"
+#155 ERROR "$"
+#156 ERROR "%"
+#157 ERROR "^"
+#158 ERROR "&"
+#159 ERROR "|"
+#160 ERROR "?"
+#161 ERROR "\\"
+#162 ERROR "]"
+#163 ERROR "["
+#164 ERROR "'"
+#165 ERROR ">"
+#168 ERROR "Unmatched *)"
+#172 ERROR "Unterminated string constant"
+#172 STR_CONST "String normal na linha seguinte para verificar recuperacao"
+#185 ERROR "String constant too long"
+#190 CLASS
+#190 TYPEID Main
+#190 INHERITS
+#190 TYPEID IO
+#190 '{'
+#191 OBJECTID fat
+#191 '('
+#191 OBJECTID n
+#191 ':'
+#191 TYPEID Int
+#191 ')'
+#191 ':'
+#191 TYPEID Int
+#191 '{'
+#192 IF
+#192 OBJECTID n
+#192 LE
+#192 INT_CONST 1
+#192 THEN
+#193 INT_CONST 1
+#194 ELSE
+#195 OBJECTID n
+#195 '*'
+#195 OBJECTID fat
+#195 '('
+#195 OBJECTID n
+#195 '-'
+#195 INT_CONST 1
+#195 ')'
+#196 FI
+#197 '}'
+#197 ';'
+#199 OBJECTID main
+#199 '('
+#199 ')'
+#199 ':'
+#199 TYPEID Object
+#199 '{'
+#200 LET
+#200 OBJECTID resultado
+#200 ':'
+#200 TYPEID Int
+#200 ASSIGN
+#200 OBJECTID fat
+#200 '('
+#200 INT_CONST 5
+#200 ')'
+#200 IN
+#201 OBJECTID out_string
+#201 '('
+#201 STR_CONST "Fatorial de 5 calculado com sucesso!\n"
+#201 ')'
+#202 '}'
+#202 ';'
+#203 '}'
+#203 ';'
+#209 ERROR "EOF in comment"
