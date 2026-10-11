@@ -1,0 +1,14 @@
+*.o
+*.d
+*.s
+__pycache__/
+parser
+lexer
+semant
+cgen
+cool-parse.cc
+cool-parse.h
+cool.tab.h
+cool.output
+good.output
+bad.output
